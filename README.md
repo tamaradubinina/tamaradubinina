@@ -13,6 +13,21 @@ Docker
     cp config/* /mnt/common_volume/swarm/grafana/config/  \
     mv grafana.yaml docker-compose.yaml  \
 
+
+
+
+![image](https://github.com/user-attachments/assets/aff91c2c-4315-471d-95b1-96fa0d849a2a)
+
+
+
+![image](https://github.com/user-attachments/assets/57717d2b-f2a3-4fe1-97df-252c7b9b52b1)
+
+
+
+![image](https://github.com/user-attachments/assets/716be64a-c45e-43ed-a965-b221b2057af8)
+
+
+
 ★ Установка последней версии и утилитю docker-compose
 
     sudo yum install curl  \
@@ -28,6 +43,16 @@ Docker
     sudo yum install docker-ce docker-ce
     sudo systemctl enable docker --now
     docker compose up -d
+
+
+![image](https://github.com/user-attachments/assets/82d965b9-5341-4eff-9ab7-f205c92743d7)
+
+
+
+![image](https://github.com/user-attachments/assets/01c60bc8-3113-45b0-9ea6-b95c3d91c306)
+
+
+![image](https://github.com/user-attachments/assets/5c45d5f2-350b-4f5d-a4be-e1bc4b506ae3)
 
 
 Конфигурация отдельных сервисов
@@ -130,6 +155,10 @@ Grafana
   ➤ Select Prometheus нажать на кнопку "Import"
 
 
+![image](https://github.com/user-attachments/assets/8272c7c6-beeb-472b-afe2-d80274f9e20f)
+
+
+
 Note
 
 Всё должно выглядить как на скриншоте https://github.com/TymkaTy/Docker/blob/main/grafana_stack_for_docker/Screenshot_Prometheus.png
@@ -140,6 +169,11 @@ Note
     cd grafana_stack_for_docker
     sudo docker compose stop
     sudo docker compose up -d
+
+![image](https://github.com/user-attachments/assets/40047abf-6f4a-45f1-984b-deab8484f990)
+
+![image](https://github.com/user-attachments/assets/7d061740-ff41-45f8-9443-28c5e42521a9)
+
 
 Т.е. перезапускаем докер
 
