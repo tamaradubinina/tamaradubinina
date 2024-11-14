@@ -22,7 +22,7 @@ Docker
     sudo chmod +x /usr/bin/docker-compose  \
     docker-compose --version  \
 
-★ Настройка и установка Docker
+★ Установка и настройка Docker
 
     sudo wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo
     sudo yum install docker-ce docker-ce
@@ -34,13 +34,15 @@ Docker
 
 Prometheus
 
-★ После Установки докера пишем sudo vi docker-compose.yaml (Обязательно что бы был расширения.yaml)Нас перекидывает на текстовый редактор:
+★ После установки докера пишем sudo vi docker-compose.yaml (Обязательно что бы был расширения.yaml)
 
-   ➤ Нас перекинет в текстовый редактор
 
-   ➤ Что-бы что-то изменить в тесковом редакторе нажмите insert на клавиатуре
-
-   ➤ Что бы сохранить что-то в этом документе нажимаем Esc пишем :wq! В этом текставом редакторе мы должны поставить node-exporter после services
+  
+  ➤ Переходим в текстовый редактор
+  
+  ➤ Что-бы изменить в тесковом редакторе надо нажать insert
+  
+  ➤ Что бы сохранить в этом документе нажимаем Esc пишем :wq! В текставом редакторе нужно поставить node-exporter после services
   
       node-exporter:
         image: prom/node-exporter
@@ -54,27 +56,28 @@ Prometheus
           - --path.procfs=/host/proc
           - --path.sysfs=/host/sys
           - --collector.filesystem.ignored-mount-points
-          - 
- ^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)
+          - ^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)
         ports:
           - 9100:9100
         restart: unless-stopped
         environment:
-          TZ: "Europe/Moscow"
+            TZ: "Europe/Moscow"
         networks:
           - default
 
-Далее пишем
+Далее:
 
     cd
     cd /mnt/common_volume/swarm/grafana/config 
     sudo vi prometheus.yaml 
 
-★ В этом файле нужно изменить первый ip Адрес на тот, который мы должны были запомнить
+★ В этом файле нужно изменить первый ip Адрес на тот, который запоминали
 
-   ➤ Вставляем в первый targets
-
-   ➤ После двоеточие цифры оставляем
+  
+  
+  ➤ Вставляем в первый targets
+  
+  ➤ После двоеточие цифры оставляем
 
 Grafana
 
@@ -82,40 +85,49 @@ Grafana
 
 ★ User & Password GRAFANA: admin
 
-
+  
+  
   ➤ Код графаны: 3000
-
-   ➤ Код прометеуса: http://prometheus:9090
+  
+  ➤ Код прометеуса: http://prometheus:9090
 
 ★ в меню выбираем вкладку Dashboards и создаем Dashboard
+  
 
-
-   ➤ ждем кнопку +Add visualization, а после "Configure a new data source"
-
-   ➤ выбираем Prometheus
+  
+  ➤ ждем кнопку +Add visualization, а после "Configure a new data source"
+  
+  ➤ выбираем Prometheus
 
 ★ Connection
 
 
+  
   ➤ http://prometheus:9090
 
 ★ Authentication
 
-  ➤Basic authentication
-       
-      ➢ User: admin
+  
+  
+  ➤ Basic authentication
+    
+    ➢ User: admin
+    
+    ➢ Password: admin
+  
 
-      ➢ Password: admin
-
-   ➤ Нажимаем на Save & test и должно показывать зелёную галочку
+  
+  ➤ Нажимаем на Save & test и должно показывать зелёную галочку
 
 ★ в меню выбираем вкладку Dashboards и создаем Dashboard
 
-   ➤ ждем кнопку "Import dashboard"
-    
-   ➤ Find and import dashboards for common applications at grafana.com/dashboards: 1860 //ждем кнопку Load
 
-    ➤ Select Prometheus ждем кнопку "Import"
+  
+  ➤ ждем кнопку "Import dashboard"
+  
+  ➤ Find and import dashboards for common applications at grafana.com/dashboards: 1860 //нажать на кнопку Load
+  
+  ➤ Select Prometheus нажать на кнопку "Import"
 
 
 Note
@@ -123,22 +135,22 @@ Note
 Всё должно выглядить как на скриншоте https://github.com/TymkaTy/Docker/blob/main/grafana_stack_for_docker/Screenshot_Prometheus.png
 
 
-Если не работает то переходим в
+Если не работает, то переходим в:
 
     cd grafana_stack_for_docker
     sudo docker compose stop
     sudo docker compose up -d
 
-То есть перезапускаем докер
+Т.е. перезапускаем докер
 
 VicroriaMetrics
 
-★ Для начала изменим docker-compose.yaml:
+★ Изменяем docker-compose.yaml:
 
     cd grafana_stack_for_docker
     sudo vi docker-compose.yaml
 
-После чего в в самом текстовом редакторе после prometheus вставляем
+После в самом текстовом редакторе после prometheus вставляем:
 
         vmagent:
         container_name: vmagent
@@ -177,17 +189,19 @@ VicroriaMetrics
           - "--vmalert.proxyURL=http://vmalert:8880"
         restart: always
 
-Сохраняем и выходим
+Сохранить и выйти
 
 ★ Захом в connection
-       
-     ➢ там где мы писали http:prometheus:9090 пишем http:victoriametrics:9090 И заменяем имя из "Prometheus-2" в "Vika"
-       
-     ➢ нажимаем на dashboards add visualition выбираем "Vika"
-       
-     ➢ снизу меняем на "cod"
-       
-     ➢ Переходим в терминал и пишем
+
+
+   
+   ➢ там где мы писали http:prometheus:9090 пишем http:victoriametrics:9090 И заменяем имя из "Prometheus-2" в "Vika"
+   
+   ➢ нажимаем на dashboards add visualition выбираем "Vika"
+   
+   ➢ снизу меняем на "cod"
+   
+   ➢ Переходим в терминал и пишем
 
     echo -e "# TYPE OILCOINT_metric1 gauge\nOILCOINT_metric1 0" | curl --data-binary @- 
     http://localhost:8428/api/v1/import/prometheus  
