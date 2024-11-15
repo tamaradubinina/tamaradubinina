@@ -14,18 +14,9 @@ Docker
     mv grafana.yaml docker-compose.yaml  \
 
 
-
-
 ![image](https://github.com/user-attachments/assets/aff91c2c-4315-471d-95b1-96fa0d849a2a)
 
-
-
-![image](https://github.com/user-attachments/assets/57717d2b-f2a3-4fe1-97df-252c7b9b52b1)
-
-
-
-![image](https://github.com/user-attachments/assets/716be64a-c45e-43ed-a965-b221b2057af8)
-
+![image](https://github.com/user-attachments/assets/3a16ba8e-5bd8-480d-b8c8-a4fd0dcec481)
 
 
 ★ Установка последней версии и утилитю docker-compose
@@ -37,6 +28,11 @@ Docker
     sudo chmod +x /usr/bin/docker-compose  \
     docker-compose --version  \
 
+![image](https://github.com/user-attachments/assets/0fb3523f-df39-4f2e-89c8-534505438508)
+
+![image](https://github.com/user-attachments/assets/b3d2d3fd-51a3-43aa-9a75-ba4d8c5d7b2b)
+
+
 ★ Установка и настройка Docker
 
     sudo wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo
@@ -44,6 +40,7 @@ Docker
     sudo systemctl enable docker --now
     docker compose up -d
 
+![image](https://github.com/user-attachments/assets/8b036e9f-80fd-4d1d-bb29-3a31f3f4797f)
 
 ![image](https://github.com/user-attachments/assets/82d965b9-5341-4eff-9ab7-f205c92743d7)
 
