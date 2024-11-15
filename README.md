@@ -87,6 +87,11 @@ Prometheus
         networks:
           - default
 
+
+![image](https://github.com/user-attachments/assets/9f44f6e0-5492-467e-b824-c36f4f132787)
+
+
+
 Далее:
 
     cd
@@ -167,7 +172,7 @@ Note
     sudo docker compose stop
     sudo docker compose up -d
 
-![image](https://github.com/user-attachments/assets/40047abf-6f4a-45f1-984b-deab8484f990)
+![image](https://github.com/user-attachments/assets/af7795f9-1c64-4ad0-925f-a703efa07645)
 
 ![image](https://github.com/user-attachments/assets/7d061740-ff41-45f8-9443-28c5e42521a9)
 
@@ -180,6 +185,9 @@ VicroriaMetrics
 
     cd grafana_stack_for_docker
     sudo vi docker-compose.yaml
+
+![image](https://github.com/user-attachments/assets/aac337b9-aa56-4a3e-a158-9ab9cc6a84a5)
+
 
 После в самом текстовом редакторе после prometheus вставляем:
 
