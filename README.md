@@ -1,5 +1,7 @@
 Docker
 
+![](https://github.com/tamaradubinina/tamaradubinina/blob/main/tenor.gif)
+
 ★ Для docker compose
 
     git clone https://github.com/skl256/grafana_stack_for_docker.git  \ нажимаем y
